@@ -116,6 +116,172 @@ def MultiplyMatrices(Matrix1, Matrix2):
 # =============================================================================
 
 
+# =============================================================================
+# start of function MatrixAddition()
+# =============================================================================
+def MatrixAddition(Matrix1, Matrix2):
+    '''
+    
+    '''
+    #create a list to contain Matrix C (i.e. the resultant matrix of the multiplication of Matrix A and Matrix B)
+    MatrixC=[]
+    
+    #counts the number of rows of Matrix A, and stores it in variable "nA"
+    nA = len(Matrix1)
+    #counts the number of columns of Matrix A, and stores it in variable "mA"
+    mA = len(Matrix1[0])
+    
+    #counts the number of rows of Matrix B, and stores it in variable "nB"
+    nB = len(Matrix2)
+    #counts the number of columns of Matrix B, and stores it in variable "mB"
+    mB = len(Matrix2[0])
+    
+    if nA == nB and mA == mB:
+        #it adds a new list inside the Matrix C list, depending on the number of rows of Matrix A
+        for i in range(nA):
+            MatrixC.append([])
+            #it fills each of insider lists (contained inside the Matrix C list) with zeros, depending on the number of columns of Matrix B
+            for j in range(mB):
+                MatrixC[i].append(0)
+        
+        #calculates the resultant of matrix multiplication of Matrix A and Matrix B, and stores the results in Matrix C
+        for i in range(nA):
+            for j in range(mB):
+                MatrixC[i][j] = Matrix1[i][j]+Matrix2[i][j]
+                    
+        #This loop checks of a value in Matrix C is an integer or a float, and reduces the number to a whole integer if
+        #it encounters a ".0" float value attached to the number.
+        for y in range(len(MatrixC)):
+            for u in range(len(MatrixC[y])):
+                if MatrixC[y][u].is_integer():
+                    p= MatrixC[y][u]
+                    MatrixC[y][u] = int(p)
+                #If the number has a decimal float value, it reduces it to 2 decimal numbers.
+                elif isinstance(MatrixC[y][u], float):
+                    p= MatrixC[y][u]
+                    MatrixC[y][u] = round(p, 2)
+                    
+        #This prints the final resultant (Matrix C) into the console.
+        print(MatrixC)
+        #Returns Matrix C as function output.
+        return MatrixC
+    else:
+        #in case the matrices can NOT be multiplied (i.e. if the number of columns in Matrix A does NOT equal the number of row in Matrix B)
+        #the function returns the following statement a printed statement.
+        return print("Those two matrices can not be Added!")
+        
+# =============================================================================
+# end of function MatrixAddition()    
+# =============================================================================
+
+# =============================================================================
+# start of function MatrixSubtraction()
+# =============================================================================
+def MatrixSubtraction(Matrix1, Matrix2):
+    '''
+    
+    '''
+    #create a list to contain Matrix C (i.e. the resultant matrix of the multiplication of Matrix A and Matrix B)
+    MatrixC=[]
+    
+    #counts the number of rows of Matrix A, and stores it in variable "nA"
+    nA = len(Matrix1)
+    #counts the number of columns of Matrix A, and stores it in variable "mA"
+    mA = len(Matrix1[0])
+    
+    #counts the number of rows of Matrix B, and stores it in variable "nB"
+    nB = len(Matrix2)
+    #counts the number of columns of Matrix B, and stores it in variable "mB"
+    mB = len(Matrix2[0])
+    
+    if nA == nB and mA == mB:
+        #it adds a new list inside the Matrix C list, depending on the number of rows of Matrix A
+        for i in range(nA):
+            MatrixC.append([])
+            #it fills each of insider lists (contained inside the Matrix C list) with zeros, depending on the number of columns of Matrix B
+            for j in range(mB):
+                MatrixC[i].append(0)
+        
+        #calculates the resultant of matrix multiplication of Matrix A and Matrix B, and stores the results in Matrix C
+        for i in range(nA):
+            for j in range(mB):
+                MatrixC[i][j] = Matrix1[i][j]-Matrix2[i][j]
+                    
+        #This loop checks of a value in Matrix C is an integer or a float, and reduces the number to a whole integer if
+        #it encounters a ".0" float value attached to the number.
+        for y in range(len(MatrixC)):
+            for u in range(len(MatrixC[y])):
+                if MatrixC[y][u].is_integer():
+                    p= MatrixC[y][u]
+                    MatrixC[y][u] = int(p)
+                #If the number has a decimal float value, it reduces it to 2 decimal numbers.
+                elif isinstance(MatrixC[y][u], float):
+                    p= MatrixC[y][u]
+                    MatrixC[y][u] = round(p, 2)
+                    
+        #This prints the final resultant (Matrix C) into the console.
+        print(MatrixC)
+        #Returns Matrix C as function output.
+        return MatrixC
+    else:
+        #in case the matrices can NOT be multiplied (i.e. if the number of columns in Matrix A does NOT equal the number of row in Matrix B)
+        #the function returns the following statement a printed statement.
+        return print("Those two matrices can not be subtracted!")
+        
+# =============================================================================
+# end of function MatrixSubtraction()    
+# =============================================================================
+
+# =============================================================================
+# start of the function MultipyByScaler()
+# =============================================================================
+def MultipyByScaler(Matrix1, Scaler):
+    '''
+    1. This function takes two matrices as input parameters.
+    2. It checks if the matrices can be multiplied or not.
+    3. It return the output.
+    '''
+    #create a list to contain Matrix C (i.e. the resultant matrix of the multiplication of Matrix A and Matrix B)
+    MatrixC=[]
+    
+    #counts the number of rows of Matrix A, and stores it in variable "nA"
+    nA = len(Matrix1)
+    #counts the number of columns of Matrix A, and stores it in variable "mA"
+    mA = len(Matrix1[0])
+    
+    for i in range(nA):
+        MatrixC.append([])
+        #it fills each of insider lists (contained inside the Matrix C list) with zeros, depending on the number of columns of Matrix B
+        for j in range(mA):
+            MatrixC[i].append(0)
+    
+    #calculates the resultant of matrix multiplication of Matrix A and Matrix B, and stores the results in Matrix C
+    for i in range(nA):
+        for j in range(mA):
+            MatrixC[i][j] = Matrix1[i][j]*Scaler
+                    
+        #This loop checks of a value in Matrix C is an integer or a float, and reduces the number to a whole integer if
+        #it encounters a ".0" float value attached to the number.
+        for y in range(len(MatrixC)):
+            for u in range(len(MatrixC[y])):
+                if MatrixC[y][u].is_integer():
+                    p= MatrixC[y][u]
+                    MatrixC[y][u] = int(p)
+                #If the number has a decimal float value, it reduces it to 2 decimal numbers.
+                elif isinstance(MatrixC[y][u], float):
+                    p= MatrixC[y][u]
+                    MatrixC[y][u] = round(p, 2)
+                    
+    #This prints the final resultant (Matrix C) into the console.
+    print(MatrixC)
+    #Returns Matrix C as function output.
+    return MatrixC
+
+# =============================================================================
+# end of function MultipyByScaler()
+# =============================================================================
+
+
 
 # =============================================================================
 # start of the function WriteMatrix()
